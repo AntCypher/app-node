@@ -29,11 +29,16 @@ export default function Header({
 				<div className="row no-gutters headerRow">
 					<div className={cx(['header-logo'])}>
                         <a href="/" className="custom-logo-link">
-                            <img className="custom-logo" src={imageUrl} alt={imageAlt} />
+                            
                         </a>
+                        <Link href="/" passHref>
+                            <a className={cx(['custom-logo-link'])}>
+                                <img className="custom-logo" src={imageUrl} alt={imageAlt} />
+                            </a>
+                        </Link>
                     </div>
 
-					<div className="header-right">
+                    <div className="header-right">
 
                         <NavigationMenu
                         className={cx(['main-navigation','hidden-md-down', isNavShown ? 'show' : undefined])}
@@ -42,14 +47,14 @@ export default function Header({
 
                         {ctaButton ? (
                         <div className={cx(['header-cta'])}>
-                        <Link href={ctaButton.url} passHref>
-                            <a className={cx(['btn btn-primary-transparent'])} target={ctaButton.target}>
-                            {ctaButton.title}
-                            </a>
-                        </Link>
+                            <Link href={ctaButton.url} passHref>
+                                <a className={cx(['btn btn-primary-transparent'])} target={ctaButton.target}>
+                                {ctaButton.title}
+                                </a>
+                            </Link>
                         </div>
                         ) : null}
-					</div>
+                    </div>
 				</div>
             </Container>
 		</div>
