@@ -1,0 +1,223 @@
+// Base styles
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	font-weight: var(--wpe--font-weight--medium);
+	font-size: 1rem;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+	background-color: var(--wpe--code--background-color);
+	color: var(--wpe--code--color);
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+	white-space: nowrap;
+	margin: 0 0 1rem;
+	display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 1rem;
+}
+
+p {
+	margin: 0 0 1rem;
+	line-height: 1.8;
+}
+
+a {
+	color: var(--link-color);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+::-moz-selection {
+	color: var(--wpe--color--white);
+	background-color: var(--wpe--color--accent);
+}
+
+::selection {
+	color: var(--wpe--color--white);
+	background-color: var(--wpe--color--accent);
+}
+
+/* row and column */
+.row {display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;}
+[class*="col-"]{padding-left: 15px;padding-right: 15px; position: relative;width: 100%;}
+.no-gutters {margin-right: 0;margin-left: 0;}
+.no-gutters > [class*="col-"] {padding-right: 0;padding-left: 0;}
+
+/* align item */
+.d-flex { display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap; }
+.align-items-center {-webkit-box-align: center;-ms-flex-align: center;align-items: center ;}
+.align-content-center {-ms-flex-line-pack: center;align-content: center;}
+.align-items-end {-ms-flex-align: end ;align-items: flex-end ;}
+.justify-content-center {-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;}
+.justify-content-end {-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end;}
+.justify-content-between {-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;}
+.justify-content-around {-ms-flex-pack: distribute;justify-content: space-around;}
+
+/* buttons */
+.btn { 
+    display: inline-block; 
+    vertical-align: top; 
+    padding: 19px 38px; 
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center; 
+    border: none;
+    border-radius: 5px; 
+    color: var(--g-secondary); 
+    background-color: var(--g-primary); 
+    border: 1px solid var(--g-primary);
+    text-decoration: none;
+}
+.btn:hover,
+.btn:focus { 
+    color: var(--g-primary);
+    background-color: var(--g-secondary);
+    border-color: var(--g-primary);
+    text-decoration: none;
+}
+.btn-primary-transparent{
+    background-color: transparent;
+    color: var(--g-light);
+    border-color: var(--g-primary);
+}
+.btn-primary-transparent:hover,
+.btn-primary-transparent:focus{
+    background-color: var(--g-primary);
+    color: var(--g-secondary);
+}
+.btn-secondary-transparent{
+    background-color: transparent;
+    color: var(--g-secondary);
+    border-color: var(--g-secondary);
+}
+.btn-secondary-transparent:hover,
+.btn-secondary-transparent:focus{
+    background-color: var(--g-secondary);
+    color: var(--g-light);
+}
+.btn-sm {padding: 8px 16px; }
+.btn-md {padding: 12px 24px;}
+.btn-link { 
+    color: var(--g-secondary);
+    font-size: 24px;
+    line-height: 36px; 
+    font-weight: 400; 
+    letter-spacing: 0px;
+    border-bottom: 1px solid var(--g-secondary);  
+}
+.btn-link:hover,
+.btn-link:focus{ 
+    color: var(--g-primary);  
+    text-decoration: none; 
+    border-bottom: 1px solid var(--g-primary); 
+}
+
+.h1, h1 {font-size:70px; margin-bottom: 20px;}
+.h2, h2 {font-size:60px; margin-bottom: 20px;font-weight: 700;}
+.h3, h3 {font-size:32px; margin-bottom: 18px; font-weight: 700;}
+.h4, h4 {font-size:26px; margin-bottom: 17px; font-weight: 700;}
+.h5, h5 {font-size:20px; margin-bottom: 15px; font-weight: 700;}
+.h6, h6 {font-size:18px; margin-bottom: 10px;}
+
+.heading_h1{font-size: 60px;line-height: 76px;font-weight: 700;margin-bottom: 0;}
+.heading_h2{
+    font-size: 60px;
+    line-height: 76px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.heading_h2 .hedingIcon{display:inline-flex; vertical-align: middle;}
+.heading_h2 .hedingIcon svg{fill: var(--g-primary);}
+.heading_h4{
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.heading-small{
+    margin-bottom: 0;
+}
+
+
+// New Heder Css
+.main-header { 
+    width:100%;
+    height:auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+}
+.main-header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #D9D9D9;
+    opacity: 0.1;
+}
+
+.main-header .container{
+    max-width: 1620px;
+}
+.header-logo{
+    display: flex;
+    width: 100%;
+    max-width: 200px;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+}
+.header-cta{
+    padding-left: 36px;
+}
+
+// responsive nav for small devices
+.hamburger{padding: 0;margin: 0;height: auto;width: auto; text-align: center;background-color: transparent}
+.hamburger:not(.close){position: absolute;top: 26px;right: 20px;z-index: 99;}
+.hamburger:hover, 
+.hamburger:focus{background-color: transparent;outline: none;}
+.hamburger .line{width: 30px;height: 4px;background-color: var(--g-light);display: block;margin: 6px auto;}
+.hamburger:hover{cursor: pointer;}
+.hamburger:hover .line{background-color: var(--g-primary);}
+.hamburger.close{padding: 10px;}
+.hamburger.close .wrap{ position: relative;width: 30px;height: 30px;display: block;}
+.hamburger.close .line{margin: 0;width:100%;position: absolute;top: calc(50% - 2px);transform: rotate(45deg);background-color: #fff}
+.hamburger.close .line:last-child{transform: rotate(-45deg);}
+
+// nav
+.current_page_item a:before{width:100%;opacity:1}
+.current-menu-parent a {color: var(--g-primary);}
+.header__main ul li ul.sub-menu {top: 130%;}
+.header__main ul li:hover ul.sub-menu {opacity: 1; visibility: visible; top: 100%;}

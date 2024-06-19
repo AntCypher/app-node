@@ -1,0 +1,115 @@
+@import 'styles/breakpoints';
+
+%visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+%hidden {
+	// Always visible for smaller viewports.
+	@media (min-width: $breakpoint-small) {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+.component {
+	background-color: var(--wpe--navigation-menu--background-color);
+}
+
+.menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	
+	> li {
+	  position: relative;
+	  
+	  > a {
+		position: relative;
+		transition: all .3s ease-in-out;
+		display: inline-flex;
+		padding: 15px 20px;
+		
+		&:before {
+		  content: "";
+		  position: absolute;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  width: 100%;
+		  height: 0;
+		  background-color: var(--g-secondary);
+		  opacity: 0;
+		  transition: all .3s ease-in-out;
+		}
+		
+		&:hover {
+		  background-color: var(--g-primary);
+		  color: var(--g-secondary);
+		  
+		  &:before {
+			opacity: 1;
+			height: 6px;
+		  }
+		}
+	  }
+	}
+	.sub-menu {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 250px;
+		background-color: var(--g-light);
+		box-shadow: 0 0 16px 7px rgba(0,0,0,.15);
+		opacity: 0;
+		visibility: hidden;
+		transition: all .3s ease-in-out;
+		z-index: 2;
+		
+		li:last-child a {
+			  border: 0;
+		}
+		
+		a{
+			border-bottom: 1px dashed;
+			padding: 14px 20px;
+			font-size: 14px;
+			line-height: 1.17;
+			color: var(--g-secondary);
+			font-weight: 400;
+			position: relative;
+			transition: all .4s ease-in-out;
+			display: inline-flex;
+			width: 100%;
+			z-index: 1;
+			
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				background-color: var(--g-primary);
+				height: 100%;
+				width: 20%;
+				opacity: 0;
+				z-index: -1;
+				transition: all .4s ease-in-out;
+			}
+			
+			&:hover,
+			.current_page_item a {
+				color: var(--g-secondary);
+			}
+			
+			&:hover:before {
+				width: 100%;
+				opacity: 1;
+			}
+		}
+	}
+}

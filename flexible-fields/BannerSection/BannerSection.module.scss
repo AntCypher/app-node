@@ -1,0 +1,109 @@
+.heroBannerSec {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 360px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .heroBannerImage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .heroBannerText {
+        margin-bottom: 50px;
+    }
+
+    .heroBannerContent {
+        position: relative;
+        width: 100%;
+
+        .heading_h1 {
+            color: var(--g-light);
+
+            span {
+                position: relative;
+                margin-left: 10px;
+                margin-right: 10px;
+                z-index: 1;
+                display: inline-block;
+
+                svg {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) !important;
+                    z-index: -1;
+                    path{
+                        fill: var(--g-primary) !important;
+                    }
+                }
+            }
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 38px;
+            color: var(--g-light);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            li {
+                list-style: none;
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 30px;
+                color: var(--g-light);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                margin-bottom: 15px;
+                position: relative;
+                padding-left: 33px;
+
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
+
+                span {
+                    margin-left: 14px;
+                }
+
+                svg {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .heroBannerHeading {
+        margin-bottom: 44px;
+    }
+
+    .heroBannerBtn {
+        padding-top: 70px;
+    }
+}

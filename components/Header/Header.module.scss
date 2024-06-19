@@ -1,0 +1,106 @@
+@import 'styles/breakpoints';
+
+.component {
+	color: var(--wpe--header--color);
+	background-color: var(--wpe--header--background-color);
+	position: relative;
+	z-index: 2; // Pull dropdown menus to the foreground to sit above <Main />.
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 3rem 0;
+	gap: 1rem;
+}
+
+.brand {
+	font-weight: var(--wpe--font-weight--bold);
+	font-size: 1.6rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.title {
+	text-decoration: none;
+}
+
+.description {
+	margin: .3rem 0 0 0;
+	font-size: 0.8rem;
+	opacity: 0.9;
+}
+
+.nav-toggle {
+	align-items: center;
+	background-color: transparent;
+	border: 0.1rem solid var(--wpe--color--white);
+	color: var(--wpe--color--black);
+	cursor: pointer;
+	display: flex;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	transition: all 0.2s ease-in;
+	user-select: none;
+	font-size: 2rem;
+
+	&:hover,
+	&:focus {
+		background-color: var(--wpe--color--white);
+		color: var(--wpe--color--black);
+	}
+
+	@media (min-width: $breakpoint-small) {
+		display: none !important;
+	}
+}
+
+.primary-navigation {
+	display: none;
+	width: 100%;
+
+	&.show {
+		display: block;
+	}
+
+	@media (min-width: $breakpoint-small) {
+		display: block;
+		width: auto;
+	}
+}
+
+.main-navigation {
+	ul {
+	  padding: 0;
+	  margin: 0;
+	  list-style: none;
+	  
+	  li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		
+		a {
+		  font-size: 16px;
+		  line-height: 22px;
+		  font-weight: 500;
+		  color: var(--g-light);
+		  text-decoration: none;
+		}
+	  }
+	  
+	  li.menu-item-child {
+		position: relative;
+		
+		.arrowclick {
+		  position: absolute;
+		  right: 14px;
+		  top: 50%;
+		  margin-top: -13px;
+		}
+	  }
+	}
+}
+  
