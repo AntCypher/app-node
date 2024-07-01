@@ -17,6 +17,7 @@ import {
   CounterSection,
   WhatWeDoSection,
 } from '../flexible-fields';
+import { AboutSec } from '../flexible-fields/AboutSec';
 
 
 export default function Component(props) {
@@ -74,6 +75,13 @@ export default function Component(props) {
         case 'GlobalPageSectionsGlobalPageSectionsWhatWeDoSectionLayout':
           return (
             <WhatWeDoSection
+              key={index}
+              sectionData={section}
+            />
+          );
+          case 'GlobalPageSectionsGlobalPageSectionsAboutSectionLayout':
+          return (
+            <AboutSec
               key={index}
               sectionData={section}
             />
@@ -145,10 +153,58 @@ Component.query = gql`
               ... on GlobalPageSectionsGlobalPageSectionsCounterSectionLayout {
                 sectionClass
                 sectionId
+                counterList {
+                  counterNumber
+                  counterNumberSign
+                  counterSign
+                  counterTitle
+                }
               }
               ... on GlobalPageSectionsGlobalPageSectionsWhatWeDoSectionLayout {
                 sectionClass
                 sectionId
+                sectionTitle
+                whatWeDoList {
+                  description
+                  icon {
+                    node {
+                      altText
+                      sourceUrl
+                      mediaItemUrl
+                    }
+                  }
+                  iconPattern
+                  title
+                }
+              }
+              ... on GlobalPageSectionsGlobalPageSectionsAboutSectionLayout {
+                experienceBoxNumber
+                experienceBoxText
+                logoTitle
+                reviewLogo {
+                  node {
+                    altText
+                    mediaItemUrl
+                    sourceUrl
+                  }
+                }
+                sectionButton {
+                  target
+                  title
+                  url
+                }
+                sectionClass
+                sectionDescription
+                sectionId
+                sectionImage {
+                  node {
+                    altText
+                    mediaItemUrl
+                    sourceUrl
+                  }
+                }
+                sectionSubTitle
+                sectionTitle
               }
             }
           }

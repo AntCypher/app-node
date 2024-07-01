@@ -1,46 +1,43 @@
 import className from 'classnames/bind';
 import styles from './CounterSection.module.scss';
+import { Container } from '../../components';
 
 let cx = className.bind(styles);
 
 
 export default function CounterSection({ sectionData }) {
-    const { sectionId, sectionClass } = sectionData;
+    const { sectionId, sectionClass, counterList } = sectionData;
+    
+    // Function to strip <p> tags from HTML content
+    const stripPTags = (htmlContent) => {
+        // Replace all <p> tags with an empty string
+        return htmlContent.replace(/<p>/g, '').replace(/<\/p>/g, '');
+    };
 
     return (
-        <section className={cx(['counterSec', sectionClass])}>
-            <div className="container">
+
+        <section id={sectionId} className={cx(['counterSec', sectionClass])}>
+            <Container className={cx(['container'])}>
+
                 <div className={cx(['row counterRow'])}>
-                    <div className="col-6 col-sm-6 col-lg-3 counterCol">
+                    {counterList.map((counter, index) => (
+                        <div
+                        key={index}
+                        className={cx(['col-6 col-sm-6 col-lg-3', 'counterCol'])}
+                        data-aos="fade"
+                        >
                         <div className={cx(['counterBox'])}>
-                            <div className={cx(['counterNumber'])}> <span className={cx(['counter'])}>250</span> <span>+</span> </div>
-                            <div className={cx(['counterText'])}>Happy
-                                <br /> Clients</div>
+                            <div className={cx(['counterNumber'])}>
+                                {counter.counterSign && <span>{counter.counterSign}</span>}
+                                <span className={cx(['counter'])}>{counter.counterNumber}</span>
+                                {counter.counterNumberSign && <span>{counter.counterNumberSign}</span>}
+                            </div>
+                            <div className={cx(['counterText'])} dangerouslySetInnerHTML={{ __html: stripPTags(counter.counterTitle ?? '') }} />
                         </div>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-3 counterCol">
-                        <div className={cx(['counterBox'])}>
-                            <div className={cx(['counterNumber'])}> <span className={cx(['counter'])}>400</span> <span>+</span> </div>
-                            <div className={cx(['counterText'])}>Successful
-                                <br /> Projects</div>
                         </div>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-3 counterCol">
-                        <div className={cx(['counterBox'])}>
-                            <div className={cx(['counterNumber'])}> <span className={cx(['counter_sign'])}>$</span> <span className={cx(['counter'])}>99</span> <span>%</span> </div>
-                            <div className={cx(['counterText'])}>Customer
-                                <br /> Satisfaction</div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-3 counterCol">
-                        <div className={cx(['counterBox'])}>
-                            <div className={cx(['counterNumber'])}> <span className={cx(['counter'])}>100</span> <span>+</span> </div>
-                            <div className={cx(['counterText'])}>Team
-                                <br /> Members</div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }
